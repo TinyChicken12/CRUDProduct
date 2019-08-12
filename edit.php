@@ -71,9 +71,9 @@ if (isset($_POST) && !empty($_POST) && isset($_POST["product_id"])) {
         $errors[] = "So luong san pham không hợp lệ";
     }
 
-    if (!isset($_POST["status"]) || empty($_POST["status"])) {
+   /* if (!isset($_POST["status"]) || empty($_POST["status"])) {
         $errors[] = "Trang thai san pham không hợp lệ";
-    }
+    }*/
 
     /**
      * $errors rỗng tức là không có lỗi
@@ -132,7 +132,13 @@ Sua san pham thất bại !
                 </div>
                 <div class="form-group">
                     <label>Ngay tao:</label>
-                    <input type="date" name="created" class="form-control" value="<?php echo $row["created"] ?>">
+                    <input type="date" name="created" class="form-control" value="<?php
+                   //$date = str_replace('-', '/', $row['created']);
+                    //$date = strtotime(date($row['created'],mm/dd/yy));
+                    $date = strtotime($row['created']);
+                    echo $date2 = date('Y-m-d',$date);
+                   //echo $row['created'];
+                    ?>">
                 </div>
                 <div class="form-group">
                     <label>Gia:</label>
@@ -143,8 +149,15 @@ Sua san pham thất bại !
                     <input type="text" name="quantity" class="form-control" value="<?php echo $row["quantity"] ?>">
                 </div>
                 <div class="form-group"><label>Trang thai: </label>
-                    <input type="radio" name="status" value="1" class="form-control">Xuat ban
-                    <input type="radio" name="status" value="0" class="form-control">Khong xuat ban
+                    <?php
+                    if($row["status"] == 1){
+                        echo "<input type=\"radio\" name=\"status\" value=\"1\" checked=\"checked\">Xuat ban
+                        <input type=\"radio\" name=\"status\" value=\"0\" >Khong xuat ban";
+                    } else echo "
+                    <input type=\"radio\" name=\"status\" value=\"1\" >Xuat ban
+                        <input type=\"radio\" name=\"status\" value=\"0\" checked=\"checked\" >Khong xuat ban
+                    "
+                    ?>
                 </div>
                 <button type="submit" class="btn btn-warning">sửa san pham</button>
             </form>

@@ -33,8 +33,8 @@ include_once "config.php";
                 <div class="form-group"><label>Quantity: </label><input type="number" name="quantity" class="form-control">
                 </div>
                 <div class="form-group"><label>Status: </label>
-                    <input type="radio" name="status" value="1" class="form-control">Xuat ban
-                    <input type="radio" name="status" value="0" class="form-control">Khong xuat ban
+                    <input type="radio" name="status" value="1" >Xuat ban
+                    <input type="radio" name="status" value="0"">Khong xuat ban
                 </div>
                 <div class="form-group"><input type="submit" value="Them san pham" class="btn btn-success"
                                                class="form-control">
@@ -70,7 +70,7 @@ if (isset($_POST) && !empty($_POST)) {
         $errors[] = "Vui long nhap so luong";
     }
 
-    if (!isset($_POST["status"]) || empty($_POST["status"])) {
+    if (!isset($_POST["status"])) {
         $errors[] = "Vui long nhap trang thai";
     }
 

@@ -1,0 +1,10 @@
+Mất thời gian kinh khủng thằng HIỂN THỊ CÁI NGÀY HỌ SỬA KHI ẤN VÀO SỬA (HIỆN NGÀY CŨ BAN ĐẦU TRC KHI SỬA) : Thực ra
+viết dk thì mất có 2 dòng như ở dưới đây
+Bài học:
+Nên dùng var_dump để fix và check lỗi cho nhanh
+Viêt ra giấy để tư duy chuẩn hơn
+
+ <input type="date" name="created" class="form-control" value="<?php
+                    $date = strtotime($row['created']);
+                    echo $date2 = date('Y-m-d',$date);
+                    ?>">
